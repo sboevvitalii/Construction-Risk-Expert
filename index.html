@@ -1,0 +1,1867 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Эксперт по рискам в строительстве</title>
+<meta name="description" content="Минимизация финансово-правовых и инженерных рисков в строительных проектах.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* ---------- Tokens ---------- */
+  :root{
+    --paper:       #eef0ea;
+    --paper-line:  #d7dbd0;
+    --panel:       #e4e8e0;
+    --ink:         #16233b;
+    --ink-soft:    #3d4c66;
+    --muted:       #6c7688;
+    --redline:     #b23a24;
+    --redline-dark:#8c2c1b;
+    --neon-cool:   #49a9e8;
+    --white:       #ffffff;
+
+    --font-display: 'Zilla Slab', Georgia, 'Times New Roman', serif;
+    --font-body:    'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono:    'IBM Plex Mono', SFMono-Regular, Consolas, monospace;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Brand is intentionally fixed regardless of the viewer's OS theme —
+     redefined per the authoring contract, values held constant on purpose. */
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #eef0ea; --paper-line:#d7dbd0; --panel:#e4e8e0;
+      --ink:#16233b; --ink-soft:#3d4c66; --muted:#6c7688;
+      --redline:#b23a24; --redline-dark:#8c2c1b; --neon-cool:#49a9e8; --white:#ffffff;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #eef0ea; --paper-line:#d7dbd0; --panel:#e4e8e0;
+    --ink:#16233b; --ink-soft:#3d4c66; --muted:#6c7688;
+    --redline:#b23a24; --redline-dark:#8c2c1b; --neon-cool:#49a9e8; --white:#ffffff;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px));
+  }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg{ max-width:100%; display:block; }
+
+  a{ color: inherit; }
+
+  .wrap{
+    width:100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  h1,h2,h3{
+    font-family: var(--font-display);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  p{ margin: 0; }
+
+  .measure{ max-width: 62ch; }
+
+  :focus-visible{
+    outline: 2px solid var(--redline);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding-top: env(safe-area-inset-top, 0px);
+    background: rgba(22,35,59,0.92);
+    backdrop-filter: blur(6px);
+  }
+  .nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:64px;
+    gap:20px;
+  }
+  .social-row{ display:flex; gap:14px; align-items:center; }
+  /* The icon files (assets/icons/*.svg) already are round badges, so the button is just the icon. */
+  .social-btn{
+    display:inline-flex;
+    width:42px; height:42px;
+    border-radius:50%;
+    text-decoration:none;
+    transition: transform 150ms ease, filter 150ms ease;
+  }
+  .social-btn:hover{
+    transform: translateY(-2px) scale(1.08);
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+  }
+  .social-btn:focus-visible{ outline:2px solid var(--redline); outline-offset:3px; }
+  .ico{ display:block; width:100%; height:100%; }
+  @media (prefers-reduced-motion: reduce){ .social-btn{ transition:none; } .social-btn:hover{ transform:none; } }
+  @media (max-width:480px){
+    .social-row{ gap:8px; }
+    .social-btn{ width:34px; height:34px; }
+    .nav .wrap{ gap:12px; }
+  }
+  .sr-only{
+    position:absolute;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+  .lang-switch{
+    display:flex;
+    border:1px solid rgba(238,240,234,0.35);
+    border-radius:2px;
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .lang-btn{
+    font-family: var(--font-mono);
+    font-size:0.76rem;
+    letter-spacing:0.02em;
+    background:transparent;
+    border:none;
+    color: rgba(238,240,234,0.55);
+    padding:7px 10px;
+    cursor:pointer;
+    transition: background 150ms ease, color 150ms ease;
+  }
+  .lang-btn + .lang-btn{ border-left:1px solid rgba(238,240,234,0.25); }
+  .lang-btn:hover{ color: var(--paper); }
+  .lang-btn.is-active{
+    background: rgba(238,240,234,0.14);
+    color: var(--paper);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background: var(--ink);
+    color: var(--paper);
+    overflow:hidden;
+  }
+  .hero .wrap{
+    position:relative;
+    z-index:2;
+    padding-top: 84px;
+    padding-bottom: 96px;
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    align-items:center;
+  }
+  .hero-art{
+    position:relative;
+    opacity:0;
+    animation: rise 900ms ease-out 200ms forwards;
+    display:flex;
+    justify-content:center;
+  }
+  .hero-photo-glow{
+    position:absolute;
+    inset: -8% -20%;
+    z-index:0;
+    pointer-events:none;
+    filter: blur(70px);
+    background:
+      radial-gradient(ellipse 48% 38% at 38% 30%, rgba(178,58,36,0.6), transparent 70%),
+      radial-gradient(ellipse 52% 44% at 66% 72%, rgba(73,169,232,0.5), transparent 70%);
+  }
+  .hero-photo{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width: 360px;
+    height:auto;
+    filter:
+      drop-shadow(0 0 8px rgba(217,105,79,0.85))
+      drop-shadow(0 0 22px rgba(178,58,36,0.6))
+      drop-shadow(0 0 46px rgba(73,169,232,0.45));
+  }
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  /* ---------- Hero cards (reflective metal plates) ----------
+     Look and behaviour ported from ReactBits "Reflective Card"
+     (MIT + Commons Clause, © 2026 David Haz) — https://reactbits.dev/components/reflective-card */
+  .hero-cards{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap:18px;
+  }
+  .rc{
+    --rc-ink: #f4f4f5;
+    --rc-muted: rgba(244,244,245,0.62);
+    --rc-base: #151a27;
+    --rc-shadow: 0 22px 44px -20px rgba(0,0,0,0.8), 0 6px 16px -8px rgba(0,0,0,0.5);
+    --rc-tile: linear-gradient(180deg, #3a3644 0%, #27242f 100%);
+    --rc-tile-edge: rgba(255,255,255,0.07);
+    --rc-tile-highlight: rgba(255,255,255,0.12);
+    --rc-tile-shadow: 0 4px 10px -4px rgba(0,0,0,0.7);
+    --rc-rim: rgba(255,255,255,0.07);
+    --rc-rim-highlight: rgba(255,255,255,0.1);
+    --rc-radius: 20px;
+    --rc-pad: 18px;
+    --rc-tile-radius: 10px;
+    position:relative;
+    display:block;
+    height:232px;
+    border-radius: var(--rc-radius);
+    perspective: 900px;
+    color: var(--rc-ink);
+    text-decoration:none;
+    touch-action: pan-y;
+    user-select:none;
+    -webkit-user-select:none;
+  }
+  .rc:focus-visible{ outline:2px solid var(--redline); outline-offset:4px; }
+  .rc__body{
+    position:relative;
+    width:100%; height:100%;
+    overflow:hidden;
+    border-radius: var(--rc-radius);
+    background: var(--rc-base);
+    box-shadow: var(--rc-shadow);
+    transform: translate3d(0, var(--rc-lift, 0px), 0) rotateX(var(--rc-rotate-x, 0deg)) rotateY(var(--rc-rotate-y, 0deg));
+    opacity: var(--rc-presence, 1);
+    isolation:isolate;
+    will-change: transform;
+  }
+  .rc__canvas{
+    position:absolute;
+    inset:0;
+    display:block;
+    width:100%; height:100%;
+  }
+  .rc__content{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    padding: var(--rc-pad);
+  }
+  .rc__identity{ margin-top:auto; }
+  .rc__name{
+    margin:0;
+    font-family: var(--font-display);
+    font-weight:600;
+    font-size:1.3rem;
+    letter-spacing:-0.01em;
+    line-height:1.15;
+    color: var(--rc-ink);
+    text-wrap: balance;
+  }
+  .rc__role{
+    margin:6px 0 0;
+    font-size:0.82rem;
+    line-height:1.4;
+    color: var(--rc-muted);
+  }
+  .rc__footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:14px;
+  }
+  .rc__label{
+    font-family: var(--font-mono);
+    font-size:0.76rem;
+    color: var(--rc-muted);
+  }
+  .rc__tile{
+    position:relative;
+    display:flex;
+    flex:none;
+    align-items:center;
+    justify-content:center;
+    width:38px; height:38px;
+    border-radius: var(--rc-tile-radius);
+    background: var(--rc-tile);
+    box-shadow: var(--rc-tile-shadow);
+    color: var(--rc-muted);
+    transition: color 180ms ease;
+  }
+  .rc__tile::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    box-shadow: inset 0 0 0 1px var(--rc-tile-edge), inset 0 1px 0 var(--rc-tile-highlight);
+    pointer-events:none;
+  }
+  .rc__tile svg{ transition: transform 200ms ease; }
+  .rc:hover .rc__tile, .rc:focus-visible .rc__tile{ color: var(--rc-ink); }
+  .rc:hover .rc__tile svg, .rc:focus-visible .rc__tile svg{ transform: translate(2px,-2px); }
+  .rc__rim{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    border-radius:inherit;
+    box-shadow: inset 0 0 0 1px var(--rc-rim), inset 0 1px 0 var(--rc-rim-highlight);
+    pointer-events:none;
+  }
+  /* no WebGL2: a plain gradient plate with a glare that follows the pointer */
+  .rc--css .rc__canvas{ display:none; }
+  .rc--css .rc__body{
+    background:
+      radial-gradient(circle at var(--gx, 50%) var(--gy, -10%), rgba(255,255,255,0.16), transparent 55%),
+      linear-gradient(150deg, #2a2d3a, #10131c);
+  }
+
+  @media (max-width: 860px){
+    .hero .wrap{ grid-template-columns: 1fr; padding-top:56px; padding-bottom:48px; }
+    .hero-art{ order:-1; max-width:340px; margin:0 auto 8px; }
+  }
+  @media (max-width: 560px){
+    .hero-cards{ grid-template-columns: 1fr; }
+    .rc{ height:208px; }
+  }
+
+  /* ---------- Section shells ---------- */
+  section{ padding: 88px 0; }
+  .section-head{ max-width: 640px; margin-bottom: 52px; }
+  .section-tag{
+    font-family: var(--font-mono);
+    font-size:0.82rem;
+    color: var(--redline);
+    margin-bottom:10px;
+  }
+  .section-head h2{
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    color: var(--ink);
+  }
+  .section-head p{
+    margin-top:14px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Services (accordion) ---------- */
+  .service-accordion{ border-top:1px solid var(--paper-line); }
+  .service-item{ border-bottom:1px solid var(--paper-line); }
+  .service-head{
+    all: unset;
+    box-sizing: border-box;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    width:100%;
+    padding: 26px 0;
+    cursor:pointer;
+  }
+  .service-title-wrap{ display:block; flex:1; min-width:0; }
+  .service-title{
+    display:block;
+    font-family: var(--font-body);
+    font-weight:600;
+    font-size:1.08rem;
+    color: var(--ink);
+  }
+  .service-sub{
+    display:block;
+    margin-top:7px;
+    font-size:0.94rem;
+    font-weight:400;
+    color: var(--ink-soft);
+    max-width:58ch;
+  }
+  .service-toggle{
+    flex-shrink:0;
+    width:38px; height:38px;
+    border:1.5px solid var(--redline);
+    border-radius:50%;
+    position:relative;
+    transition: background 180ms ease;
+  }
+  .service-toggle::before, .service-toggle::after{
+    content:"";
+    position:absolute;
+    top:50%; left:50%;
+    background: var(--redline);
+    transform: translate(-50%,-50%);
+    transition: transform 220ms ease;
+  }
+  .service-toggle::before{ width:16px; height:2px; }
+  .service-toggle::after{ width:2px; height:16px; }
+  .service-head[aria-expanded="true"] .service-toggle::after{ transform: translate(-50%,-50%) rotate(90deg); opacity:0; }
+  .service-toggle::before, .service-toggle::after{
+    transition: transform 220ms ease, background 180ms ease;
+  }
+  .service-head:focus-visible{
+    outline: 2px solid var(--redline);
+    outline-offset: 4px;
+  }
+
+  /* hover / open: the button fills, the title picks up the accent */
+  .service-title{ transition: color 180ms ease; }
+  .service-head:hover .service-title,
+  .service-head:focus-visible .service-title{ color: var(--redline); }
+  .service-head:hover .service-toggle,
+  .service-head:focus-visible .service-toggle,
+  .service-head[aria-expanded="true"] .service-toggle{ background: var(--redline); }
+  .service-head:hover .service-toggle::before,
+  .service-head:hover .service-toggle::after,
+  .service-head:focus-visible .service-toggle::before,
+  .service-head:focus-visible .service-toggle::after,
+  .service-head[aria-expanded="true"] .service-toggle::before,
+  .service-head[aria-expanded="true"] .service-toggle::after{ background: var(--white); }
+
+  /* hint label */
+  .service-hint{
+    flex-shrink:0;
+    font-family: var(--font-mono);
+    font-size:0.78rem;
+    color: var(--muted);
+    transition: opacity 200ms ease;
+  }
+  .service-head[aria-expanded="true"] .service-hint{ opacity:0; }
+  @media (max-width:600px){
+    .service-hint{ display:none; }
+  }
+
+  /* attention cue: starts when the list scrolls into view, one item after another,
+     and stops for good after the first click */
+  @keyframes cue-ring{
+    0%   { box-shadow: 0 0 0 0 rgba(178,58,36,0.5); transform: scale(1); }
+    8%   { transform: scale(1.1); }
+    30%  { box-shadow: 0 0 0 16px rgba(178,58,36,0); transform: scale(1); }
+    100% { box-shadow: 0 0 0 16px rgba(178,58,36,0); transform: scale(1); }
+  }
+  @keyframes cue-hint{
+    0%       { color: var(--muted);   transform: translateX(0); }
+    8%       { color: var(--redline); transform: translateX(-5px); }
+    22%      { color: var(--redline); transform: translateX(0); }
+    40%,100% { color: var(--muted);   transform: translateX(0); }
+  }
+  .service-item:nth-child(2){ --cue-delay:.7s; }
+  .service-item:nth-child(3){ --cue-delay:1.4s; }
+  .service-item:nth-child(4){ --cue-delay:2.1s; }
+  .service-accordion.in-view:not(.is-engaged) .service-head[aria-expanded="false"] .service-toggle{
+    animation: cue-ring 4.8s ease-out var(--cue-delay, 0s) infinite;
+  }
+  .service-accordion.in-view:not(.is-engaged) .service-head[aria-expanded="false"] .service-hint{
+    animation: cue-hint 4.8s ease-in-out var(--cue-delay, 0s) infinite;
+  }
+
+  .service-panel{
+    max-height:0;
+    overflow:hidden;
+    visibility:hidden;
+    transition: max-height 360ms ease, visibility 0s linear 360ms;
+  }
+  .service-panel.is-open{
+    visibility:visible;
+    transition: max-height 360ms ease, visibility 0s;
+  }
+  .service-panel-inner{ padding: 2px 0 34px; }
+  .service-preview{
+    display:block;
+    width:100%;
+    max-width:620px;
+    height:auto;
+    border:1px solid var(--paper-line);
+  }
+  .service-pdf-link{
+    margin-top:18px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family: var(--font-mono);
+    font-size:0.85rem;
+    color: var(--redline);
+    text-decoration:none;
+    border-bottom:1px solid currentColor;
+    padding-bottom:2px;
+  }
+  .service-pdf-link:hover{ color: var(--redline-dark); }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .contact .section-tag{ color: #d98a76; }
+  .contact .section-head h2{ color: var(--white); }
+  .contact .section-head p{ color: rgba(238,240,234,0.75); }
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .contact-msgrs{ margin-top:28px; display:flex; flex-direction:column; gap:14px; width:min(100%, 380px); }
+  .msgr-link{
+    position:relative;
+    display:flex;
+    align-items:center;
+    width:100%;
+    min-height:50px;
+    padding:12px 18px;
+    text-decoration:none;
+    color: var(--paper);
+    border:1px solid rgba(238,240,234,0.35);
+    font-size:0.95rem;
+    transition: border-color 150ms ease, color 150ms ease;
+  }
+  .msgr-link:hover{ border-color: var(--redline); color: #ff9d84; }
+  .msgr-ico{ flex:none; display:block; width:30px; height:30px; margin-right:14px; }
+  @media (max-width:420px){
+    .msgr-link{ padding:12px 14px; font-size:0.88rem; }
+    .msgr-ico{ margin-right:10px; }
+  }
+
+  /* a light streak runs along the frame (needs CSS offset-path: rect(); older browsers just show the plain frame) */
+  .beam{ display:none; }
+  @supports (offset-path: rect(0 auto auto 0)){
+    .beam{
+      display:block;
+      position:absolute;
+      inset:-1px;
+      padding:2px;
+      overflow:hidden; /* the streak never leaves the frame, so it can't widen the page on phones */
+      pointer-events:none;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+    }
+    .beam::after{
+      content:"";
+      position:absolute;
+      width:64px;
+      aspect-ratio:1;
+      background: linear-gradient(to left, rgba(255,255,255,0.95), rgba(255,255,255,0));
+      offset-anchor: 90% 50%;
+      offset-path: rect(0 auto auto 0);
+      animation: beam-run 5s linear infinite;
+    }
+    .msgr-link:nth-child(2) .beam::after{ animation-delay:-1.2s; }
+    .msgr-link:nth-child(3) .beam::after{ animation-delay:-2.4s; }
+    .msgr-link:nth-child(4) .beam::after{ animation-delay:-3.6s; }
+  }
+  @keyframes beam-run{ to{ offset-distance:100%; } }
+  @media (prefers-reduced-motion: reduce){ .beam{ display:none; } }
+
+  form{ display:flex; flex-direction:column; gap:16px; }
+  label{
+    display:block;
+    font-family: var(--font-mono);
+    font-size:0.78rem;
+    color: rgba(238,240,234,0.6);
+    margin-bottom:8px;
+  }
+  input, textarea{
+    width:100%;
+    background: transparent;
+    border:none;
+    border-bottom:1px solid rgba(238,240,234,0.35);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-size:1rem;
+    padding:8px 2px;
+  }
+  input::placeholder, textarea::placeholder{ color: rgba(238,240,234,0.35); }
+  input:focus, textarea:focus{ outline:none; border-bottom-color: var(--redline); }
+  textarea{ resize:vertical; min-height:70px; }
+  .submit-btn{
+    margin-top:10px;
+    align-self:flex-start;
+    font-family: var(--font-mono);
+    font-size:0.92rem;
+    color: var(--ink);
+    background: var(--paper);
+    border:1.5px solid var(--paper);
+    padding:13px 24px;
+    cursor:pointer;
+    transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+  .submit-btn:hover{ background: var(--redline); border-color: var(--redline); color:var(--white); }
+  .form-note{
+    margin-top:14px;
+    font-size:0.85rem;
+    color: rgba(238,240,234,0.55);
+    display:none;
+  }
+  .form-note.show{ display:block; }
+  .form-note.form-error{ color:#ff9d84; }
+  .form-note.form-error a{ color:inherit; text-decoration:underline; text-underline-offset:3px; }
+  .submit-btn:disabled{ opacity:0.6; cursor:progress; }
+  .submit-btn:disabled:hover{ background: var(--paper); border-color: var(--paper); color: var(--ink); }
+  /* spam trap: real visitors never see or fill it */
+  .hp{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+
+  @media (max-width:820px){
+    .contact-grid{ grid-template-columns:1fr; gap:40px; }
+  }
+
+  footer{
+    background: var(--ink);
+    color: rgba(238,240,234,0.5);
+    font-size:0.82rem;
+    padding: 26px 0 calc(26px + env(safe-area-inset-bottom,0px));
+    border-top:1px solid rgba(238,240,234,0.12);
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  /* ---------- Developer badge: static port of LogoCircularCta (React → plain HTML/CSS) ---------- */
+  /* LogoCircularCta.css */
+
+  .lcc-wrapper {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .lcc-wrapper {
+    cursor: pointer;
+  }
+
+  .lcc-wrapper:hover,
+  .lcc-wrapper:focus-visible {
+    transform: scale(1.03);
+  }
+
+  .lcc-wrapper:focus-visible {
+    outline: 2px solid #e88519;
+    outline-offset: 6px;
+    border-radius: 50%;
+  }
+
+  /* --- Текст дугой сверху/снизу (статично, без вращения) --- */
+
+  .lcc-arcs {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .lcc-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    fill: #e88519;
+  }
+
+  /* --- Лого по центру --- */
+
+  .lcc-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 50%;
+    animation: lcc-logo-cycle var(--lcc-logo-duration, 5s) infinite;
+  }
+
+  .lcc-logo-fill {
+    fill: #2b2a29;
+    stroke: #e88519;
+    stroke-width: 300;
+  }
+
+  .lcc-logo-ring {
+    fill: none;
+    stroke: #2b2a29;
+    stroke-width: 100;
+  }
+
+  .lcc-logo-glyph {
+    fill: #e88519;
+  }
+
+  /* Рост -> три оборота -> возврат в исходный вид (1080deg кратно 360,
+     поэтому визуально лого в конце неотличимо от старта — переход
+     на новый цикл получается бесшовным) */
+  @keyframes lcc-logo-cycle {
+    0% {
+      transform: scale(1) rotate(0deg);
+      animation-timing-function: ease-out;
+    }
+    20% {
+      transform: scale(1.3) rotate(0deg);
+      animation-timing-function: linear;
+    }
+    75% {
+      transform: scale(1.3) rotate(1080deg);
+      animation-timing-function: ease-in;
+    }
+    92% {
+      transform: scale(1) rotate(1080deg);
+      animation-timing-function: linear;
+    }
+    100% {
+      transform: scale(1) rotate(1080deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lcc-logo {
+      animation: none;
+    }
+    .lcc-wrapper {
+      transition: none;
+    }
+  }
+  /* adaptation for this static page: size comes from --lcc-size (React passed it inline) */
+  footer .footer-dev{ display:flex; justify-content:center; padding-top:22px; }
+  .lcc-wrapper{ --lcc-size:176px; width:var(--lcc-size); height:var(--lcc-size); cursor:pointer; }
+  .lcc-logo{
+    width:calc(var(--lcc-size) * 0.46);
+    height:calc(var(--lcc-size) * 0.46);
+    margin-top:calc(var(--lcc-size) * -0.23);
+    margin-left:calc(var(--lcc-size) * -0.23);
+  }
+
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="wrap">
+    <div class="social-row">
+      <!-- LinkedIn is still a placeholder (href="#" + data-placeholder): put the real URL into href and delete data-placeholder -->
+      <a class="social-btn" href="#" data-placeholder aria-label="LinkedIn" title="LinkedIn"><img class="ico" src="assets/icons/linkedin.svg" alt="" width="42" height="42"></a>
+      <a class="social-btn" href="https://www.instagram.com/partner_construction_manager/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><img class="ico" src="assets/icons/instagram.svg" alt="" width="42" height="42"></a>
+      <a class="social-btn" href="https://wa.me/77012923910" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><img class="ico" src="assets/icons/whatsapp.svg" alt="" width="42" height="42"></a>
+      <a class="social-btn" href="https://t.me/sergey_sboyev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><img class="ico" src="assets/icons/telegram.svg" alt="" width="42" height="42"></a>
+      <a class="social-btn" href="mailto:constructionmanager@mail.ru" aria-label="Email" title="Email"><img class="ico" src="assets/icons/email.svg" alt="" width="42" height="42"></a>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Язык / Language">
+      <button type="button" class="lang-btn" data-lang="ru">RU</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-cards">
+      <h1 class="sr-only" data-i18n="heroH1">Минимизация рисков в проектах <em>от $5 млн</em> — до того, как они станут проблемой</h1>
+
+      <a class="rc" href="audit.html">
+        <div class="rc__body">
+          <canvas class="rc__canvas" aria-hidden="true"></canvas>
+          <div class="rc__content">
+            <div class="rc__identity">
+              <h2 class="rc__name" data-i18n="card1Title">Аудит процесса строительства</h2>
+              <p class="rc__role" data-i18n="card1Role">Независимая проверка хода работ, графика, качества и безопасности</p>
+            </div>
+            <div class="rc__footer">
+              <span class="rc__label" data-i18n="cardMore">Подробнее</span>
+              <span class="rc__tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+            </div>
+          </div>
+          <span class="rc__rim"></span>
+        </div>
+      </a>
+
+      <a class="rc" href="support.html">
+        <div class="rc__body">
+          <canvas class="rc__canvas" aria-hidden="true"></canvas>
+          <div class="rc__content">
+            <div class="rc__identity">
+              <h2 class="rc__name" data-i18n="card2Title">Сопровождение строительства</h2>
+              <p class="rc__role" data-i18n="card2Role">Постоянный контроль рисков на всех этапах — от тендера до сдачи</p>
+            </div>
+            <div class="rc__footer">
+              <span class="rc__label" data-i18n="cardMore">Подробнее</span>
+              <span class="rc__tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+            </div>
+          </div>
+          <span class="rc__rim"></span>
+        </div>
+      </a>
+
+      <a class="rc" href="management.html">
+        <div class="rc__body">
+          <canvas class="rc__canvas" aria-hidden="true"></canvas>
+          <div class="rc__content">
+            <div class="rc__identity">
+              <h2 class="rc__name" data-i18n="card3Title">Управление строительством</h2>
+              <p class="rc__role" data-i18n="card3Role">Полное ведение проекта: от подготовки и закупа до ввода в эксплуатацию</p>
+            </div>
+            <div class="rc__footer">
+              <span class="rc__label" data-i18n="cardMore">Подробнее</span>
+              <span class="rc__tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+            </div>
+          </div>
+          <span class="rc__rim"></span>
+        </div>
+      </a>
+
+      <a class="rc" href="mentoring.html">
+        <div class="rc__body">
+          <canvas class="rc__canvas" aria-hidden="true"></canvas>
+          <div class="rc__content">
+            <div class="rc__identity">
+              <h2 class="rc__name" data-i18n="card4Title">Наставничество</h2>
+              <p class="rc__role" data-i18n="card4Role">Делимся практикой с линейными руководителями: приоритеты и 10 правил успешной стройки</p>
+            </div>
+            <div class="rc__footer">
+              <span class="rc__label" data-i18n="cardMore">Подробнее</span>
+              <span class="rc__tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+            </div>
+          </div>
+          <span class="rc__rim"></span>
+        </div>
+      </a>
+    </div>
+    <div class="hero-art">
+      <div class="hero-photo-glow"></div>
+      <img class="hero-photo" src="expert-photo.webp" data-i18n-alt="heroPhotoAlt" alt="Сергей Сбоев — эксперт по рискам в строительстве" width="900" height="1130">
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag" data-i18n="servicesTag">виды услуг</div>
+        <h2 data-i18n="servicesH2">Четыре формата, которые можно взять по отдельности</h2>
+        <p data-i18n="servicesP">У каждого — краткое описание и лист с деталями, который открывается прямо здесь.</p>
+      </div>
+
+      <div class="service-accordion">
+
+        <div class="service-item" data-title-key="svc1Title"
+             data-img-ru="assets/service-preconstruction-ru.webp" data-img-en="assets/service-preconstruction-en.webp"
+             data-pdf-ru="assets/service-preconstruction-ru.pdf" data-pdf-en="assets/service-preconstruction-en.pdf">
+          <button class="service-head" type="button" aria-expanded="false">
+            <span class="service-title-wrap">
+              <span class="service-title" data-i18n="svc1Title">Работы предшествующие строительству</span>
+              <span class="service-sub" data-i18n="svc1Sub">Анализ документации, разбивка на рабочие пакеты, график и ресурсы — до начала стройки.</span>
+            </span>
+            <span class="service-hint" aria-hidden="true" data-i18n="svcHint">нажмите, чтобы открыть</span>
+            <span class="service-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="service-panel">
+            <div class="service-panel-inner">
+              <img class="service-preview" src="assets/service-preconstruction-ru.webp" alt="Работы предшествующие строительству" width="1000" height="1000" loading="lazy">
+              <a class="service-pdf-link" href="assets/service-preconstruction-ru.pdf" target="_blank" rel="noopener" data-i18n="svcOpenPdf">Открыть PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item" data-title-key="svc2Title"
+             data-img-ru="assets/service-management-ru.webp" data-img-en="assets/service-management-en.webp"
+             data-pdf-ru="assets/service-management-ru.pdf" data-pdf-en="assets/service-management-en.pdf">
+          <button class="service-head" type="button" aria-expanded="false">
+            <span class="service-title-wrap">
+              <span class="service-title" data-i18n="svc2Title">Управление строительством</span>
+              <span class="service-sub" data-i18n="svc2Sub">Полное сопровождение: от подготовки и закупа до контроля качества и ввода в эксплуатацию.</span>
+            </span>
+            <span class="service-hint" aria-hidden="true" data-i18n="svcHint">нажмите, чтобы открыть</span>
+            <span class="service-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="service-panel">
+            <div class="service-panel-inner">
+              <img class="service-preview" src="assets/service-management-ru.webp" alt="Управление строительством" width="1000" height="1000" loading="lazy">
+              <a class="service-pdf-link" href="assets/service-management-ru.pdf" target="_blank" rel="noopener" data-i18n="svcOpenPdf">Открыть PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item" data-title-key="svc3Title"
+             data-img-ru="assets/service-duringwork-ru.webp" data-img-en="assets/service-duringwork-en.webp"
+             data-pdf-ru="assets/service-duringwork-ru.pdf" data-pdf-en="assets/service-duringwork-en.pdf">
+          <button class="service-head" type="button" aria-expanded="false">
+            <span class="service-title-wrap">
+              <span class="service-title" data-i18n="svc3Title">Услуги во время СМР</span>
+              <span class="service-sub" data-i18n="svc3Sub">Независимый аудит прогресса, графика поставок, качества и безопасности на площадке.</span>
+            </span>
+            <span class="service-hint" aria-hidden="true" data-i18n="svcHint">нажмите, чтобы открыть</span>
+            <span class="service-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="service-panel">
+            <div class="service-panel-inner">
+              <img class="service-preview" src="assets/service-duringwork-ru.webp" alt="Услуги во время СМР" width="1000" height="1000" loading="lazy">
+              <a class="service-pdf-link" href="assets/service-duringwork-ru.pdf" target="_blank" rel="noopener" data-i18n="svcOpenPdf">Открыть PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item" data-title-key="svc4Title"
+             data-img-ru="assets/service-mentoring-ru.webp" data-img-en="assets/service-mentoring-en.webp"
+             data-pdf-ru="assets/service-mentoring-ru.pdf" data-pdf-en="assets/service-mentoring-en.pdf">
+          <button class="service-head" type="button" aria-expanded="false">
+            <span class="service-title-wrap">
+              <span class="service-title" data-i18n="svc4Title">Наставничество для линейных руководителей</span>
+              <span class="service-sub" data-i18n="svc4Sub">Практика для линейных руководителей: приоритеты, на что обращать внимание и 10 правил успешной стройки.</span>
+            </span>
+            <span class="service-hint" aria-hidden="true" data-i18n="svcHint">нажмите, чтобы открыть</span>
+            <span class="service-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="service-panel">
+            <div class="service-panel-inner">
+              <img class="service-preview" src="assets/service-mentoring-ru.webp" alt="Наставничество для линейных руководителей" width="1000" height="1000" loading="lazy">
+              <a class="service-pdf-link" href="assets/service-mentoring-ru.pdf" target="_blank" rel="noopener" data-i18n="svcOpenPdf">Открыть PDF</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <div class="section-tag" data-i18n="contactTag">контакты</div>
+          <div class="section-head" style="margin-bottom:0;">
+            <h2 data-i18n="contactH2">Обсудим ваш объект</h2>
+            <p data-i18n="contactP">Опишите задачу — риски по контракту, сомнения в подрядчике или конкретную спорную ситуацию. Отвечу в течение рабочего дня.</p>
+          </div>
+          <div class="contact-msgrs">
+            <a class="msgr-link" href="https://wa.me/77012923910" target="_blank" rel="noopener"><img class="msgr-ico" src="assets/icons/whatsapp.svg" alt="" width="30" height="30"><span class="msgr-text" data-i18n="msgrWhatsapp">WhatsApp — написать напрямую</span><span class="beam" aria-hidden="true"></span></a>
+            <a class="msgr-link" href="https://t.me/sergey_sboyev" target="_blank" rel="noopener"><img class="msgr-ico" src="assets/icons/telegram.svg" alt="" width="30" height="30"><span class="msgr-text" data-i18n="msgrTelegram">Telegram — написать напрямую</span><span class="beam" aria-hidden="true"></span></a>
+            <a class="msgr-link" href="#" data-placeholder><img class="msgr-ico" src="assets/icons/linkedin.svg" alt="" width="30" height="30"><span class="msgr-text" data-i18n="msgrLinkedin">LinkedIn — написать напрямую</span><span class="beam" aria-hidden="true"></span></a>
+            <a class="msgr-link" href="https://www.instagram.com/partner_construction_manager/" target="_blank" rel="noopener"><img class="msgr-ico" src="assets/icons/instagram.svg" alt="" width="30" height="30"><span class="msgr-text" data-i18n="msgrInstagram">Instagram — написать напрямую</span><span class="beam" aria-hidden="true"></span></a>
+          </div>
+        </div>
+
+        <form id="leadForm">
+          <div>
+            <label for="name" data-i18n="formNameLabel">Имя</label>
+            <input id="name" name="name" type="text" data-i18n-placeholder="formNamePh" placeholder="Как к вам обращаться" required>
+          </div>
+          <div>
+            <label for="contact-field" data-i18n="formContactLabel">Телефон или email</label>
+            <input id="contact-field" name="contact" type="text" data-i18n-placeholder="formContactPh" placeholder="+7 700 000 00 00 или email" required>
+          </div>
+          <div>
+            <label for="message" data-i18n="formMessageLabel">Комментарий</label>
+            <textarea id="message" name="message" data-i18n-placeholder="formMessagePh" placeholder="Кратко опишите задачу"></textarea>
+          </div>
+          <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+          <button class="submit-btn" type="submit" data-i18n="formSubmit">Отправить заявку</button>
+          <p class="form-note" id="formNote" role="status" data-i18n="formNote">Заявка получена. Отвечу в течение рабочего дня.</p>
+          <p class="form-note form-error" id="formError" role="alert"><span data-i18n="formError">Не удалось отправить заявку. Напишите напрямую в мессенджер или</span> <a id="formMailto" href="mailto:constructionmanager@mail.ru" data-i18n="formMailtoBtn">отправьте письмом.</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="footerCopy">© 2026 · Сергей Сбоев — независимый эксперт по рискам в строительстве</span>
+    <span data-i18n="footerNda">Кейсы приведены с изменёнными деталями по условиям NDA</span>
+  </div>
+  <div class="wrap footer-dev">
+    <a class="lcc-wrapper" href="https://web-developer-s.netlify.app" target="_blank" rel="noopener noreferrer">
+      <span class="sr-only" data-i18n="devCtaLabel">Нужен сайт? Жми сюда — сайт разработчика</span>
+      <svg class="lcc-arcs" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+        <defs>
+          <path id="lcc-top" d="M 14,100 A 86,86 0 0,1 186,100"/>
+          <path id="lcc-bottom" d="M 14,100 A 86,86 0 0,0 186,100"/>
+        </defs>
+        <text class="lcc-text" text-anchor="middle"><textPath href="#lcc-top" startOffset="50%" data-i18n="devCtaTop">Нужен сайт?</textPath></text>
+        <text class="lcc-text" text-anchor="middle"><textPath href="#lcc-bottom" startOffset="50%" data-i18n="devCtaBottom">ЖМИ сюда</textPath></text>
+      </svg>
+      <svg class="lcc-logo" viewBox="0 0 10500 10500" aria-hidden="true" focusable="false">
+        <circle cx="5290.6" cy="5292.52" r="5000" class="lcc-logo-fill"/>
+        <g transform="translate(2535.09, 8721.67) scale(10.29776, -10.29776)"><path class="lcc-logo-glyph" d="M478.5 661.666c-16.8338,-22.8331 -30.4998,-46.6665 -40.5001,-71.5 -19.8334,-48.833 -33.0004,-78.8327 -39.4999,-89.9992l-2.50054 -2.83363c-1.3333,3.49979 -2.33352,6.16639 -2.99968,8.16682 -9.00002,29.1665 -16.4997,49.3331 -22.5,60.6666 -5.83331,11.3335 -14.6663,22.167 -26.3329,32.5003 -29.6666,26.1659 -63.5002,39.3328 -101.334,39.3328 -34.8338,0 -64.0003,-9.66618 -87.1665,-28.9995 -23.1672,-19.3333 -34.6668,-43.6668 -34.6668,-72.8333 0,-54.6672 41.3333,-91.8336 123.833,-111.667l82.6675 -20.0005c117.666,-28.3333 176.5,-90.1662 176.5,-185.833 0,-53.3339 -20.1665,-98 -60.3335,-134.334 -40.166,-36.1661 -90.0002,-54.3332 -149.166,-54.3332 -37.1663,0 -78.6666,5.66725 -124.5,16.8338l-57.1668 14.0001c-23.1662,5.49925 -42.1665,8.16682 -57.1668,8.16682 -19.8334,0 -40.333,-6.16736 -61.4998,-18.6672l-3.9999 6.83352c40.5001,60.8336 68.8334,118.834 85,173.833l8.83299 -2.49957c6.83352,-51.0004 27.3331,-90.6673 61.4998,-119.001 34.1667,-28.3333 78.8336,-42.4995 134,-42.4995 43.6668,0 78.3335,10.1663 104,30.3338 25.6667,20.1665 38.4996,47.3326 38.4996,81.4993 0,39.3338 -17.833,71.8341 -53.666,97.4998 -25.6667,18.1671 -78.5006,35.1669 -158.166,50.8334 -61.5008,12.0007 -106.001,32.0002 -133.667,60.0004 -27.6672,28.0003 -41.5003,66.833 -41.5003,116.666 0,51.3335 18.5001,93.0008 55.5004,125.167 36.8333,32.0002 85,47.9998 144.333,47.9998 37.9995,0 82.4995,-6.83255 133.333,-20.3326 23.6673,-6.50044 41.3333,-9.66715 52.6668,-9.66715 15.9996,0 33.5005,5.66628 52.3337,16.9998l5.3332 -2.33352zm30.3328 -20.9997l-4.50001 -7.33363c-13.333,-22.5 -24.6665,-44.1659 -34.1667,-64.6665 -22.6661,-47.9998 -35.666,-74.6667 -38.4996,-80.166l-2.49957 -3.50076 -11.6676 4.83406 2.00044 4.50001c9.3331,21.4998 23.0001,49.4991 41.0002,84.1659l33.1664 64.5004 2.50054 3.9999 12.6659 -6.33342zm-142.666 -97.1668c-36.0001,38.3336 -74.5007,57.4999 -115.834,57.4999 -24.8336,0 -45.5002,-7.16661 -61.8329,-21.4998 -16.3336,-14.3332 -24.5005,-32.6663 -24.5005,-54.8333 0,-24.1664 16.8338,-48.833 50.3333,-74.3336l3.9999 -2.49957 -2.49957 -3.83287c-43.1667,19.1663 -64.8335,46.9995 -64.8335,83.4997 0,25.3327 9.16704,46.0003 27.3331,61.9999 18.3341,15.8335 42.1674,23.8333 71.5,23.8333 28.0003,0 52.5007,-6.00033 73.5005,-17.833 21.1667,-11.8336 36.5002,-28.5004 46.3334,-50.0002l-3.49979 -2.00044zm112.333 -193.833c44.3329,-33.4995 66.4999,-79.4998 66.4999,-137.833 0,-62.1669 -24.1664,-114.834 -72.3332,-158 -48.1668,-43.1667 -106.667,-64.8335 -175.667,-64.8335 -35.1659,0 -67,3.66682 -95.3334,10.8334l-78.1665 19.3333c-18.1661,4.50001 -37.6664,6.83352 -58.5001,6.83352 -18.6662,0 -35.666,-3.83287 -51.3325,-11.3335l-5.83331 14.1672c16.9998,8.16682 34.1667,12.1667 51.8326,12.1667 19.5004,0 41.8334,-3.00065 67,-8.83396l75.3339 -18.3331c29.9997,-7.16661 61.4998,-10.8334 94.8332,-10.8334 65.1666,0 120.666,20.8337 166.5,62.3339 45.8333,41.4993 68.6664,91.6665 68.6664,150.5 0,49.8332 -17.834,93.4999 -53.5,130.833l0 2.99968zm-347.667 -140.667c11.9997,-58.6662 44.3329,-100.166 96.6667,-124.5l0 -3.9999c-60.4996,17.6669 -97.1668,59.6664 -109.834,126l13.1669 2.49957zm-60.9997 158.166l16.6667 -9.16607c10.6664,-19.3333 41.9994,-35.1669 94.1661,-47.8337l78.6666 -19.6664c53.3339,-13.333 88.8339,-24.8336 106.667,-34.3337 17.6669,-9.66618 30.3338,-24.1664 37.8335,-43.6668l-3.49979 -1.99946c-14.6673,16.8328 -30.5008,29.3336 -47.5006,37.1663 -17.1668,7.66672 -50.0002,17.3339 -98.5001,28.6664 -70.3328,16.3336 -117.499,30.5008 -141.5,42.3335 -24.1664,11.8336 -38.4996,28.0003 -42.9996,48.4999z"/></g>
+        <circle cx="5264.38" cy="5292.52" r="5000" class="lcc-logo-ring"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var translations = {
+    ru: {
+      pageTitle: "Эксперт по рискам в строительстве",
+      metaDescription: "Минимизация финансово-правовых и инженерных рисков в строительных проектах.",
+      navMark: "Сергей Сбоев",
+      navCompetencies: "Компетенции",
+      navServices: "Услуги",
+      navCases: "Кейсы",
+      navFormat: "Формат работы",
+      navCta: "Записаться",
+      heroEyebrow: "риск-консалтинг в строительстве",
+      heroH1: 'Минимизация рисков в проектах <em>от $5 млн</em> — до того, как они станут проблемой',
+      heroLede: "Провожу независимую экспертизу для девелоперов и подрядчиков: аудит контрактов, оценка графика, проверка партнёров — чтобы срыв сроков, судебный спор или незапланированные расходы не стали сюрпризом.",
+      heroCta: "Записаться на консультацию",
+      heroLink: "Как строится работа",
+      heroPhotoAlt: "Сергей Сбоев — эксперт по рискам в строительстве",
+      servicesTag: "виды услуг",
+      servicesH2: "Четыре формата, которые можно взять по отдельности",
+      servicesP: "У каждого — краткое описание и лист с деталями, который открывается прямо здесь.",
+      svc1Title: "Работы предшествующие строительству",
+      svc1Sub: "Анализ документации, разбивка на рабочие пакеты, график и ресурсы — до начала стройки.",
+      svc2Title: "Управление строительством",
+      svc2Sub: "Полное сопровождение: от подготовки и закупа до контроля качества и ввода в эксплуатацию.",
+      svc3Title: "Услуги во время СМР",
+      svc3Sub: "Независимый аудит прогресса, графика поставок, качества и безопасности на площадке.",
+      svc4Title: "Наставничество для линейных руководителей",
+      svc4Sub: "Практика для линейных руководителей: приоритеты, на что обращать внимание и 10 правил успешной стройки.",
+      svcOpenPdf: "Открыть PDF",
+      svcHint: "нажмите, чтобы открыть",
+      cardMore: "Подробнее",
+      card1Title: "Аудит процесса строительства",
+      card1Role: "Независимая проверка хода работ, графика, качества и безопасности",
+      card2Title: "Сопровождение строительства",
+      card2Role: "Постоянный контроль рисков на всех этапах — от тендера до сдачи",
+      card3Title: "Управление строительством",
+      card3Role: "Полное ведение проекта: от подготовки и закупа до ввода в эксплуатацию",
+      card4Title: "Наставничество",
+      card4Role: "Делимся практикой с линейными руководителями: приоритеты и 10 правил успешной стройки",
+      contactTag: "контакты",
+      contactH2: "Обсудим ваш объект",
+      contactP: "Опишите задачу — риски по контракту, сомнения в подрядчике или конкретную спорную ситуацию. Отвечу в течение рабочего дня.",
+      msgrWhatsapp: "WhatsApp — написать напрямую",
+      msgrTelegram: "Telegram — написать напрямую",
+      msgrLinkedin: "LinkedIn — написать напрямую",
+      msgrInstagram: "Instagram — написать напрямую",
+      formNameLabel: "Имя",
+      formNamePh: "Как к вам обращаться",
+      formContactLabel: "Телефон или email",
+      formContactPh: "+7 700 000 00 00 или email",
+      formMessageLabel: "Комментарий",
+      formMessagePh: "Кратко опишите задачу",
+      formSubmit: "Отправить заявку",
+      formNote: "Заявка получена. Отвечу в течение рабочего дня.",
+      formSending: "Отправляю…",
+      formError: "Не удалось отправить заявку. Напишите напрямую в мессенджер или",
+      formMailtoBtn: "отправьте письмом.",
+      footerCopy: "© 2026 · Сергей Сбоев — независимый эксперт по рискам в строительстве",
+      footerNda: "Кейсы приведены с изменёнными деталями по условиям NDA",
+      devCtaTop: "Нужен сайт?",
+      devCtaBottom: "ЖМИ сюда",
+      devCtaLabel: "Нужен сайт? Жми сюда — сайт разработчика"
+    },
+    en: {
+      pageTitle: "Construction Risk Expert",
+      metaDescription: "Minimizing financial, legal and engineering risk in construction projects.",
+      navMark: "Sergey Sboyev",
+      navCompetencies: "Expertise",
+      navServices: "Services",
+      navCases: "Case studies",
+      navFormat: "Engagement",
+      navCta: "Contact",
+      heroEyebrow: "construction risk consulting",
+      heroH1: 'De-risking projects <em>from $5M</em> — before problems get expensive',
+      heroLede: "Independent risk review for developers and contractors: contract audits, schedule risk, counterparty due diligence — so a missed deadline, legal dispute or budget overrun never comes as a surprise.",
+      heroCta: "Book a consultation",
+      heroLink: "How engagements work",
+      heroPhotoAlt: "Sergey Sboyev — construction risk expert",
+      servicesTag: "services",
+      servicesH2: "Four services you can book on their own",
+      servicesP: "Each one has a short brief and a detail sheet you can open right here.",
+      svc1Title: "Pre-construction work",
+      svc1Sub: "Document review, work-package breakdown, schedule and resourcing — before work begins.",
+      svc2Title: "Construction management",
+      svc2Sub: "End-to-end oversight — from procurement to quality control and commissioning.",
+      svc3Title: "Services during construction & installation work",
+      svc3Sub: "Independent audits of progress, delivery schedule, quality and on-site safety.",
+      svc4Title: "Mentoring for line managers",
+      svc4Sub: "Practical support for line managers — priorities, what to watch for, and 10 rules of successful construction work.",
+      svcOpenPdf: "Open PDF",
+      svcHint: "click to open",
+      cardMore: "Learn more",
+      card1Title: "Construction process audit",
+      card1Role: "Independent review of progress, schedule, quality and safety",
+      card2Title: "Construction support",
+      card2Role: "Ongoing risk control at every stage — from tender to handover",
+      card3Title: "Construction management",
+      card3Role: "Full project delivery — from preparation and procurement to commissioning",
+      card4Title: "Mentoring",
+      card4Role: "Sharing practice with line managers: priorities and the 10 rules of successful construction",
+      contactTag: "contact",
+      contactH2: "Let's talk about your project",
+      contactP: "Describe the situation — contract risk, doubts about a contractor, a specific dispute. I'll reply within one business day.",
+      msgrWhatsapp: "WhatsApp — message directly",
+      msgrTelegram: "Telegram — message directly",
+      msgrLinkedin: "LinkedIn — message directly",
+      msgrInstagram: "Instagram — message directly",
+      formNameLabel: "Name",
+      formNamePh: "Your name",
+      formContactLabel: "Phone or email",
+      formContactPh: "+7 700 000 00 00 or email",
+      formMessageLabel: "Message",
+      formMessagePh: "Briefly describe the situation",
+      formSubmit: "Send request",
+      formNote: "Request received. I'll reply within one business day.",
+      formSending: "Sending…",
+      formError: "Couldn't send your request. Please message directly in a messenger or",
+      formMailtoBtn: "send an email.",
+      footerCopy: "© 2026 · Sergey Sboyev — independent construction risk expert",
+      footerNda: "Case details altered under NDA",
+      devCtaTop: "Need a website?",
+      devCtaBottom: "CLICK HERE",
+      devCtaLabel: "Need a website? Click here — the developer's site"
+    }
+  };
+
+  var LS_KEY = 'riskSiteLang';
+
+  function getSavedLang(){
+    try{ return localStorage.getItem(LS_KEY); }catch(e){ return null; }
+  }
+  function saveLang(l){
+    try{ localStorage.setItem(LS_KEY, l); }catch(e){}
+  }
+  function detectDefault(){
+    var saved = getSavedLang();
+    if(saved === 'ru' || saved === 'en') return saved;
+    var nav = (navigator.language || '').toLowerCase();
+    return nav.indexOf('ru') === 0 ? 'ru' : 'en';
+  }
+
+  function applyLang(lang){
+    var t = translations[lang];
+    if(!t) return;
+    document.documentElement.setAttribute('lang', lang);
+    document.title = t.pageTitle;
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if(metaDesc) metaDesc.setAttribute('content', t.metaDescription);
+
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for(var i=0;i<nodes.length;i++){
+      var key = nodes[i].getAttribute('data-i18n');
+      if(t[key] !== undefined) nodes[i].innerHTML = t[key];
+    }
+    var ph = document.querySelectorAll('[data-i18n-placeholder]');
+    for(var j=0;j<ph.length;j++){
+      var pk = ph[j].getAttribute('data-i18n-placeholder');
+      if(t[pk] !== undefined) ph[j].setAttribute('placeholder', t[pk]);
+    }
+    var alts = document.querySelectorAll('[data-i18n-alt]');
+    for(var k=0;k<alts.length;k++){
+      var ak = alts[k].getAttribute('data-i18n-alt');
+      if(t[ak] !== undefined) alts[k].setAttribute('alt', t[ak]);
+    }
+    var btns = document.querySelectorAll('.lang-btn');
+    for(var b=0;b<btns.length;b++){
+      var active = btns[b].getAttribute('data-lang') === lang;
+      btns[b].classList.toggle('is-active', active);
+      btns[b].setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+
+    var services = document.querySelectorAll('.service-item');
+    for(var s=0;s<services.length;s++){
+      var item = services[s];
+      var img = item.querySelector('.service-preview');
+      var link = item.querySelector('.service-pdf-link');
+      var imgSrc = item.getAttribute('data-img-' + lang);
+      var pdfHref = item.getAttribute('data-pdf-' + lang);
+      var titleKey = item.getAttribute('data-title-key');
+      if(img && imgSrc){
+        img.src = imgSrc;
+        if(titleKey && t[titleKey] !== undefined) img.alt = t[titleKey];
+      }
+      if(link && pdfHref) link.setAttribute('href', pdfHref);
+      var panel = item.querySelector('.service-panel');
+      if(panel && panel.classList.contains('is-open')){
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    }
+  }
+
+  function initAccordion(){
+    var items = document.querySelectorAll('.service-item');
+    for(var i=0;i<items.length;i++){
+      (function(item){
+        var head = item.querySelector('.service-head');
+        var panel = item.querySelector('.service-panel');
+        head.addEventListener('click', function(){
+          var isOpen = head.getAttribute('aria-expanded') === 'true';
+          for(var j=0;j<items.length;j++){
+            var otherHead = items[j].querySelector('.service-head');
+            var otherPanel = items[j].querySelector('.service-panel');
+            otherHead.setAttribute('aria-expanded', 'false');
+            otherPanel.classList.remove('is-open');
+            otherPanel.style.maxHeight = '';
+          }
+          if(!isOpen){
+            head.setAttribute('aria-expanded', 'true');
+            panel.classList.add('is-open');
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+          }
+        });
+      })(items[i]);
+    }
+  }
+
+  window.addEventListener('resize', function(){
+    var open = document.querySelector('.service-panel.is-open');
+    if(open) open.style.maxHeight = open.scrollHeight + 'px';
+  });
+
+  function initCue(){
+    var acc = document.querySelector('.service-accordion');
+    if(!acc) return;
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        for(var i=0;i<entries.length;i++){
+          if(entries[i].isIntersecting){ acc.classList.add('in-view'); io.disconnect(); }
+        }
+      }, { threshold: 0.35 });
+      io.observe(acc);
+    }else{
+      acc.classList.add('in-view');
+    }
+    acc.addEventListener('click', function(e){
+      if(e.target.closest && e.target.closest('.service-head')) acc.classList.add('is-engaged');
+    });
+  }
+
+  /* ---------- Lead form: sends the request to the owner's mailbox via FormSubmit (formsubmit.co) ----------
+     First real submission makes FormSubmit email an activation link to MAIL_TO; click it once and requests start arriving. */
+  var MAIL_TO = 'constructionmanager@mail.ru';
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + MAIL_TO;
+
+  function initLeadForm(){
+    var form = document.getElementById('leadForm');
+    if(!form) return;
+    var btn = form.querySelector('.submit-btn');
+    var okNote = document.getElementById('formNote');
+    var errNote = document.getElementById('formError');
+    var mailLink = document.getElementById('formMailto');
+    var sending = false;
+
+    function lang(){ return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ru'; }
+    function setBusy(on){
+      sending = on;
+      btn.disabled = on;
+      btn.setAttribute('aria-busy', on ? 'true' : 'false');
+      btn.innerHTML = translations[lang()][on ? 'formSending' : 'formSubmit'];
+    }
+    function hideNotes(){ okNote.classList.remove('show'); errNote.classList.remove('show'); }
+    function fail(name, contact, message){
+      var en = lang() === 'en';
+      var subject = (en ? 'Request from the website: ' : 'Заявка с сайта: ') + name;
+      var body = (en ? 'Name: ' : 'Имя: ') + name + '\n' + (en ? 'Contact: ' : 'Контакт: ') + contact + '\n\n' + message;
+      mailLink.setAttribute('href', 'mailto:' + MAIL_TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body));
+      errNote.classList.add('show');
+      setBusy(false);
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(sending) return;
+      var f = form.elements;
+      hideNotes();
+      if(f['_honey'].value){            // a bot filled the hidden field: pretend it worked, send nothing
+        okNote.classList.add('show'); form.reset(); return;
+      }
+      var name = f['name'].value.trim();
+      var contact = f['contact'].value.trim();
+      var message = f['message'].value.trim();
+      if(!name){ f['name'].focus(); return; }
+      if(!contact){ f['contact'].focus(); return; }
+
+      var payload = {
+        name: name,
+        contact: contact,
+        message: message || '—',
+        language: lang(),
+        _subject: 'Заявка с сайта: ' + name,
+        _template: 'table',
+        _captcha: 'false'
+      };
+      if(contact.indexOf('@') > 0) payload.email = contact;   // lets the owner just press "Reply"
+
+      setBusy(true);
+      var ctrl = ('AbortController' in window) ? new AbortController() : null;
+      var timer = setTimeout(function(){ if(ctrl) ctrl.abort(); }, 15000);
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function(r){
+        return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok, j: j || {} }; });
+      }).then(function(res){
+        clearTimeout(timer);
+        if(res.ok && String(res.j.success).toLowerCase() !== 'false'){
+          okNote.classList.add('show');
+          form.reset();
+          setBusy(false);
+        } else {
+          fail(name, contact, message);
+        }
+      }).catch(function(){
+        clearTimeout(timer);
+        fail(name, contact, message);
+      });
+    });
+  }
+
+  function init(){
+    applyLang(detectDefault());
+    initAccordion();
+    initCue();
+    initLeadForm();
+    var btns = document.querySelectorAll('.lang-btn');
+    for(var i=0;i<btns.length;i++){
+      btns[i].addEventListener('click', function(){
+        var l = this.getAttribute('data-lang');
+        saveLang(l);
+        applyLang(l);
+      });
+    }
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  }else{
+    init();
+  }
+})();
+</script>
+
+<script>
+/* Reflective cards — plain-JS port of ReactBits "Reflective Card"
+   https://reactbits.dev/components/reflective-card
+   MIT + Commons Clause License Condition v1.0 — Copyright (c) 2026 David Haz
+   Permission is granted to use, copy, modify, merge and publish the Software as part of an application,
+   website or product, provided the above copyright notice is included. The components themselves may not be
+   sold, sublicensed or redistributed. The WebGL plate shader below is taken unchanged from the original. */
+(function(){
+  'use strict';
+
+  var VERTEX = `#version 300 es
+in vec2 aPosition;
+out vec2 vUv;
+void main() {
+  vUv = aPosition * 0.5 + 0.5;
+  gl_Position = vec4(aPosition, 0.0, 1.0);
+}`;
+  var PLATE = `#version 300 es
+precision highp float;
+in vec2 vUv;
+out vec4 fragColor;
+
+uniform sampler2D uEnv;
+uniform vec2 uEnvSize;
+uniform vec2 uSize;
+uniform float uRadius;
+uniform float uScale;
+uniform mat3 uRotate;
+uniform float uCapture;
+uniform float uBlur;
+uniform float uRough;
+uniform float uMetal;
+uniform vec3 uTint;
+uniform float uGray;
+uniform float uWarp;
+uniform float uWarpScale;
+uniform float uShine;
+uniform float uBevel;
+uniform float uGlare;
+uniform vec2 uPointer;
+uniform float uTheme;
+
+const float VIEW = 900.0;
+const float OVERSCAN = 1.20;
+const float CONTENT = 46.0;
+
+float hash(vec2 p) {
+  vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+  p3 += dot(p3, p3.yzx + 33.33);
+  return fract((p3.x + p3.y) * p3.z);
+}
+
+vec2 hash2(vec2 p) {
+  vec3 p3 = fract(vec3(p.xyx) * vec3(0.1031, 0.103, 0.0973));
+  p3 += dot(p3, p3.yzx + 33.33);
+  return fract((p3.xx + p3.yz) * p3.zy) * 2.0 - 1.0;
+}
+
+vec3 gradientNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
+  vec2 du = 30.0 * f * f * (f * (f - 2.0) + 1.0);
+  vec2 ga = hash2(i);
+  vec2 gb = hash2(i + vec2(1.0, 0.0));
+  vec2 gc = hash2(i + vec2(0.0, 1.0));
+  vec2 gd = hash2(i + vec2(1.0, 1.0));
+  float va = dot(ga, f);
+  float vb = dot(gb, f - vec2(1.0, 0.0));
+  float vc = dot(gc, f - vec2(0.0, 1.0));
+  float vd = dot(gd, f - vec2(1.0, 1.0));
+  float k = va - vb - vc + vd;
+  float value = va + u.x * (vb - va) + u.y * (vc - va) + u.x * u.y * k;
+  vec2 slope = ga + u.x * (gb - ga) + u.y * (gc - ga) + u.x * u.y * (ga - gb - gc + gd) + du * (u.yx * k + vec2(vb, vc) - va);
+  return vec3(value, slope);
+}
+
+float valueNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  float a = hash(i);
+  float b = hash(i + vec2(1.0, 0.0));
+  float c = hash(i + vec2(0.0, 1.0));
+  float d = hash(i + vec2(1.0, 1.0));
+  return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+float erf(float x) {
+  float x2 = x * x;
+  return sign(x) * sqrt(1.0 - exp(-x2 * (1.2732395 + 0.147 * x2) / (1.0 + 0.147 * x2)));
+}
+
+float band(float x, float halfWidth, float sigma) {
+  float s = 1.4142136 * max(sigma, 0.0001);
+  return 0.5 * (erf((x + halfWidth) / s) - erf((x - halfWidth) / s));
+}
+
+float strip(vec2 q, vec2 center, vec2 dir, float halfWidth, vec2 sigma) {
+  vec2 normal = vec2(-dir.y, dir.x);
+  return band(dot(q - center, normal), halfWidth, length(sigma * normal));
+}
+
+const vec2 SWEEP = vec2(0.5, 0.86);
+const vec3 LUMA = vec3(0.2126, 0.7152, 0.0722);
+
+float softbox(vec2 q, vec2 sigma) {
+  float key = strip(q, vec2(-0.1, -0.16), normalize(SWEEP), 0.022, sigma + 0.018);
+  float top = band(q.y + 0.6, 0.12, sigma.y + 0.05);
+  float side = band(q.x - 0.46, 0.05, sigma.x + 0.05);
+  return key + top * 0.8 + side * 0.35;
+}
+
+float room(vec2 q, vec2 sigma) {
+  float fall = smoothstep(-0.55, 0.5, q.y);
+  float flag = strip(q, vec2(0.24, -0.02), normalize(SWEEP), 0.09, sigma + 0.08);
+  return mix(0.85, 0.12, fall) * (1.0 - 0.6 * flag);
+}
+
+vec4 sampleEnv(vec2 uv) {
+  vec2 st = uv * uEnvSize - 0.5;
+  vec2 i = floor(st);
+  vec2 f = st - i;
+  vec2 f2 = f * f;
+  vec2 f3 = f2 * f;
+  vec2 w0 = (1.0 - 3.0 * f + 3.0 * f2 - f3) / 6.0;
+  vec2 w1 = (4.0 - 6.0 * f2 + 3.0 * f3) / 6.0;
+  vec2 w2 = (1.0 + 3.0 * f + 3.0 * f2 - 3.0 * f3) / 6.0;
+  vec2 w3 = f3 / 6.0;
+  vec2 g0 = w0 + w1;
+  vec2 g1 = w2 + w3;
+  vec2 c0 = (i + 0.5 + w1 / g0 - 1.0) / uEnvSize;
+  vec2 c1 = (i + 0.5 + w3 / g1 + 1.0) / uEnvSize;
+  vec4 a = texture(uEnv, c0) * g0.x + texture(uEnv, vec2(c1.x, c0.y)) * g1.x;
+  vec4 b = texture(uEnv, vec2(c0.x, c1.y)) * g0.x + texture(uEnv, c1) * g1.x;
+  return a * g0.y + b * g1.y;
+}
+
+vec3 toLinear(vec3 c) {
+  return pow(max(c, 0.0), vec3(2.2));
+}
+
+void main() {
+  vec2 p = vec2(vUv.x - 0.5, 0.5 - vUv.y) * uSize;
+  vec2 halfSize = uSize * 0.5;
+  float r = min(uRadius, min(halfSize.x, halfSize.y));
+  vec2 corner = abs(p) - halfSize + r;
+  vec2 side = vec2(p.x >= 0.0 ? 1.0 : -1.0, p.y >= 0.0 ? 1.0 : -1.0);
+  float d;
+  vec2 outward;
+  if (corner.x > 0.0 && corner.y > 0.0) {
+    d = length(corner) - r;
+    outward = normalize(corner) * side;
+  } else if (corner.x > corner.y) {
+    d = corner.x - r;
+    outward = vec2(side.x, 0.0);
+  } else {
+    d = corner.y - r;
+    outward = vec2(0.0, side.y);
+  }
+  float coverage = clamp(0.5 - d * uScale, 0.0, 1.0);
+
+  float chamferWidth = min(uBevel, max(r, 1.0));
+  float chamfer = chamferWidth > 0.01 ? 1.0 - smoothstep(0.0, chamferWidth, -d) : 0.0;
+  vec2 slope = outward * chamfer;
+
+  vec2 wp = p / (220.0 * uWarpScale);
+  vec3 w1 = gradientNoise(wp);
+  vec3 w2 = gradientNoise(wp * 2.07 + 13.7);
+  vec2 ripple = (w1.yz + w2.yz * 0.5) * uWarp;
+  slope += ripple * 0.008;
+
+  float grain = valueNoise(vec2(p.x * 0.008, p.y * 0.55)) * 0.45 + valueNoise(vec2(p.x * 0.019 + 3.7, p.y * 0.23)) * 0.35 + valueNoise(vec2(p.x * 0.004 + 9.2, p.y * 0.09)) * 0.2;
+  float brush = uRough * uRough;
+  slope.y += (grain - 0.5) * brush * 0.004;
+
+  vec3 normal = uRotate * normalize(vec3(slope, 1.0));
+  vec3 position = uRotate * vec3(p, 0.0);
+  vec3 view = normalize(position - vec3(0.0, 0.0, VIEW));
+  vec3 bounce = reflect(view, normal);
+  vec2 q = bounce.xy / max(bounce.z, 0.2);
+
+  vec2 footprint = fwidth(q);
+  vec2 sigma = sqrt(vec2(uBlur / VIEW) * vec2(uBlur / VIEW) + footprint * footprint * 0.5);
+  sigma += vec2(0.004, 0.05) * uRough;
+
+  vec2 shift = clamp((q - p / VIEW) * CONTENT + ripple * 10.0, -uSize, uSize);
+  vec2 cp = (p + shift) / (uSize * OVERSCAN);
+  vec4 reflected = uCapture > 0.0 ? sampleEnv(vec2(0.5 + cp.x, 0.5 - cp.y)) : vec4(0.0, 0.0, 0.0, 1.0);
+  vec3 captured = toLinear(reflected.rgb) * (0.5 / max(pow(reflected.a, 2.2), 0.02));
+  captured = mix(vec3(dot(captured, LUMA)), captured, 1.0 - uGray);
+  captured = pow(max(captured * 1.2, 0.0), vec3(mix(2.0, 1.5, uTheme)));
+
+  vec3 scene = mix(vec3(room(q, sigma)), captured, uCapture * (1.0 - chamfer) * mix(1.0, 0.6, uTheme));
+  scene *= 1.0 + (grain - 0.5) * brush * 0.3;
+
+  vec2 toPointer = (uPointer - p) / (120.0 + uBlur * 4.0);
+  vec2 spread = toPointer * vec2(1.0, 1.0 / (1.0 + 2.5 * uRough));
+  float reach = dot(spread, spread);
+  float glint = max(1.0 + 3.0 * dot(slope, toPointer), 0.0);
+  float glare = (exp(-reach * 1.6) + exp(-reach * 0.35) * 0.15) * glint * uGlare * (1.0 + 0.8 * (grain - 0.5) * brush);
+  float highlight = (softbox(q, sigma) * uShine + glare) * mix(0.4, 1.0, uMetal);
+
+  vec3 dark = vec3(0.005, 0.005, 0.006) + uTint * (scene * 0.05 * uMetal + highlight * 0.36);
+  vec3 light = uTint * (vec3(0.83, 0.83, 0.85) * (1.0 - 0.45 * uMetal * (1.0 - clamp(scene, 0.0, 1.0))) + highlight * 0.35);
+  vec3 color = mix(dark, light, uTheme);
+  color = min(color, 0.7) + 0.3 * (1.0 - exp(-max(color - 0.7, 0.0) / 0.3));
+  color = pow(clamp(color, 0.0, 1.0), vec3(1.0 / 2.2));
+
+  color += (hash(gl_FragCoord.xy) - 0.5) / 255.0;
+  color = clamp(color, 0.0, 1.0);
+  fragColor = vec4(color * coverage, coverage);
+}`;
+
+  var INTRO_MS = 1400;
+  var S = {
+    tint: [0.84, 0.89, 1.0].map(function(c){ return Math.pow(c, 2.2); }), /* cool white, #d6e4ff */
+    metalness: 1, roughness: 0.3, blurStrength: 6, grayscale: 1,
+    warp: 0.6, warpScale: 1, shine: 1, bevel: 3, glare: 0.5,
+    tiltStrength: 12, radius: 20, theme: 0
+  };
+
+  function clamp(v, a, b){ return Math.min(b, Math.max(a, v)); }
+
+  function compile(gl, type, source){
+    var shader = gl.createShader(type);
+    if(!shader) return null;
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if(!gl.getShaderParameter(shader, gl.COMPILE_STATUS)){
+      console.error(gl.getShaderInfoLog(shader));
+      gl.deleteShader(shader);
+      return null;
+    }
+    return shader;
+  }
+
+  function createPlate(canvas){
+    var gl = canvas.getContext('webgl2', {
+      alpha: true, premultipliedAlpha: true, antialias: false,
+      depth: false, stencil: false, powerPreference: 'default'
+    });
+    if(!gl) return null;
+    var vs = compile(gl, gl.VERTEX_SHADER, VERTEX);
+    var fs = compile(gl, gl.FRAGMENT_SHADER, PLATE);
+    if(!vs || !fs) return null;
+    var program = gl.createProgram();
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.bindAttribLocation(program, 0, 'aPosition');
+    gl.linkProgram(program);
+    gl.deleteShader(vs);
+    gl.deleteShader(fs);
+    if(!gl.getProgramParameter(program, gl.LINK_STATUS)){
+      console.error(gl.getProgramInfoLog(program));
+      return null;
+    }
+    var u = {};
+    var count = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
+    for(var i = 0; i < count; i++){
+      var info = gl.getActiveUniform(program, i);
+      if(info) u[info.name] = gl.getUniformLocation(program, info.name);
+    }
+    var vao = gl.createVertexArray();
+    gl.bindVertexArray(vao);
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    gl.disable(gl.BLEND);
+    gl.disable(gl.DEPTH_TEST);
+
+    /* no camera / video here: the plate reflects the built-in "studio" light only */
+    var env = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, env);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 255]));
+
+    var rotation = new Float32Array(9);
+
+    function render(o){
+      var cx = Math.cos(o.rotateX), sx = Math.sin(o.rotateX);
+      var cy = Math.cos(o.rotateY), sy = Math.sin(o.rotateY);
+      rotation.set([cy, sx * sy, -cx * sy, 0, cx, sx, sy, -sx * cy, cx * cy]);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.useProgram(program);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, env);
+      gl.uniform1i(u.uEnv, 0);
+      gl.uniform2f(u.uEnvSize, 1, 1);
+      gl.uniform2f(u.uSize, o.width, o.height);
+      gl.uniform1f(u.uRadius, S.radius);
+      gl.uniform1f(u.uScale, canvas.width / Math.max(1, o.width));
+      gl.uniformMatrix3fv(u.uRotate, false, rotation);
+      gl.uniform1f(u.uCapture, 0);
+      gl.uniform1f(u.uBlur, S.blurStrength);
+      gl.uniform1f(u.uRough, S.roughness);
+      gl.uniform1f(u.uMetal, S.metalness);
+      gl.uniform3fv(u.uTint, S.tint);
+      gl.uniform1f(u.uGray, S.grayscale);
+      gl.uniform1f(u.uWarp, S.warp);
+      gl.uniform1f(u.uWarpScale, S.warpScale);
+      gl.uniform1f(u.uShine, S.shine);
+      gl.uniform1f(u.uBevel, S.bevel);
+      gl.uniform1f(u.uGlare, o.glare);
+      gl.uniform2f(u.uPointer, o.pointerX, o.pointerY);
+      gl.uniform1f(u.uTheme, S.theme);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    return { render: render };
+  }
+
+  function initCard(root, index){
+    var body = root.querySelector('.rc__body');
+    var canvas = root.querySelector('.rc__canvas');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var plate = createPlate(canvas);
+    if(!plate) root.classList.add('rc--css');
+
+    var x = { p: 0, v: 0, target: 0 };
+    var y = { p: 0, v: 0, target: 0 };
+    var light = { p: 0, target: 0 };
+    var pointer = { x: 0, y: 0 };
+    var size = { width: body.offsetWidth, height: body.offsetHeight, scale: 1 };
+    var presence = reduced ? 1 : 0;
+    var presenceStart = 0;
+    var slowUntil = 0;
+    var touchId = null;
+    var raf = 0;
+    var last = 0;
+    var visible = false;
+    var started = false;
+    var pageVisible = document.visibilityState !== 'hidden';
+
+    function write(){
+      var angle = reduced ? 0 : S.tiltStrength;
+      var st = root.style;
+      st.setProperty('--rc-rotate-x', (y.p * angle).toFixed(3) + 'deg');
+      st.setProperty('--rc-rotate-y', (-x.p * angle).toFixed(3) + 'deg');
+      var eased = 1 - Math.pow(1 - presence, 3);
+      st.setProperty('--rc-presence', eased.toFixed(4));
+      st.setProperty('--rc-lift', ((1 - eased) * 14).toFixed(2) + 'px');
+    }
+
+    function resize(){
+      size.width = body.offsetWidth;
+      size.height = body.offsetHeight;
+      size.scale = Math.min(window.devicePixelRatio || 1, 2);
+      var w = Math.max(1, Math.round(size.width * size.scale));
+      var h = Math.max(1, Math.round(size.height * size.scale));
+      if(canvas.width !== w || canvas.height !== h){
+        canvas.width = w;
+        canvas.height = h;
+      }
+    }
+
+    function frame(now){
+      raf = 0;
+      var dt = Math.min(0.05, (now - last) / 1000 || 0);
+      last = now;
+      var slow = now < slowUntil;
+      var stiffness = slow ? 24 : 120;
+      var damping = slow ? 9 : 16;
+      var steps = Math.max(1, Math.ceil(dt / (1 / 120)));
+      var h = dt / steps;
+      var axes = [x, y];
+      for(var i = 0; i < steps; i++){
+        for(var a = 0; a < 2; a++){
+          var axis = axes[a];
+          axis.v += (stiffness * (axis.target - axis.p) - damping * axis.v) * h;
+          axis.p += axis.v * h;
+        }
+      }
+      var tau = light.target > light.p ? 0.18 : slow ? 0.9 : 0.45;
+      light.p += (light.target - light.p) * (1 - Math.exp(-dt / tau));
+      if(presence < 1) presence = clamp((now - presenceStart) / 650, 0, 1);
+
+      var moving =
+        Math.abs(x.target - x.p) > 0.0005 || Math.abs(y.target - y.p) > 0.0005 ||
+        Math.abs(x.v) > 0.0005 || Math.abs(y.v) > 0.0005 ||
+        Math.abs(light.target - light.p) > 0.002 || presence < 1;
+      if(!moving){
+        x.p = x.target; y.p = y.target; x.v = 0; y.v = 0; light.p = light.target;
+      }
+      write();
+
+      if(plate){
+        var angle = (reduced ? 0 : S.tiltStrength) * (Math.PI / 180);
+        plate.render({
+          width: size.width, height: size.height,
+          rotateX: y.p * angle, rotateY: -x.p * angle,
+          glare: S.glare * light.p,
+          pointerX: pointer.x, pointerY: pointer.y
+        });
+      }
+      if(moving && visible && pageVisible) raf = requestAnimationFrame(frame);
+    }
+
+    function wake(){
+      if(raf || !visible || !pageVisible) return;
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+
+    function startIntro(){
+      if(started) return;
+      started = true;
+      if(reduced) return;
+      var now = performance.now() + index * 140;   /* the four plates arrive one after another */
+      x.p = 0.62; y.p = -0.55; light.p = 1;
+      pointer.x = 0.62 * size.width * 0.5;
+      pointer.y = -0.55 * size.height * 0.5;
+      presence = 0;
+      presenceStart = now;
+      slowUntil = now + INTRO_MS;
+    }
+
+    function aim(nx, ny, on){
+      x.target = clamp(nx, -1, 1);
+      y.target = clamp(ny, -1, 1);
+      light.target = on === false ? 0 : 1;
+      slowUntil = 0;
+      wake();
+    }
+    function aimAt(e){
+      var rect = root.getBoundingClientRect();
+      if(!rect.width || !rect.height) return;
+      var nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      var ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+      pointer.x = nx * size.width * 0.5;
+      pointer.y = ny * size.height * 0.5;
+      root.style.setProperty('--gx', ((nx + 1) * 50).toFixed(1) + '%');
+      root.style.setProperty('--gy', ((ny + 1) * 50).toFixed(1) + '%');
+      aim(nx, ny, true);
+    }
+    function release(){ aim(0, 0, false); }
+
+    root.addEventListener('pointerenter', function(e){ if(e.pointerType === 'mouse') aimAt(e); });
+    root.addEventListener('pointermove', function(e){ if(e.pointerType === 'mouse' || e.pointerId === touchId) aimAt(e); });
+    root.addEventListener('pointerleave', function(e){ if(e.pointerType === 'mouse') release(); });
+    root.addEventListener('pointerdown', function(e){
+      if(e.pointerType === 'mouse') return;
+      touchId = e.pointerId;
+      aimAt(e);
+    });
+    function up(e){
+      if(e.pointerId !== touchId) return;
+      touchId = null;
+      release();
+    }
+    root.addEventListener('pointerup', up);
+    root.addEventListener('pointercancel', up);
+
+    canvas.addEventListener('webglcontextlost', function(e){
+      e.preventDefault();
+      plate = null;
+      root.classList.add('rc--css');
+    });
+
+    if('ResizeObserver' in window){
+      new ResizeObserver(function(){ resize(); wake(); }).observe(body);
+    }
+    resize();
+
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){
+        visible = entries.some(function(en){ return en.isIntersecting; });
+        if(visible) startIntro();
+        wake();
+      }).observe(root);
+    }else{
+      visible = true;
+      startIntro();
+    }
+    document.addEventListener('visibilitychange', function(){
+      pageVisible = document.visibilityState !== 'hidden';
+      wake();
+    });
+
+    write();
+    wake();
+  }
+
+  var cards = document.querySelectorAll('.rc');
+  for(var i = 0; i < cards.length; i++) initCard(cards[i], i);
+
+  /* links that are still placeholders must not jump the page to the top */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[data-placeholder]');
+    if(a) e.preventDefault();
+  });
+})();
+</script>
+
+</body>
+</html>
+
+</body></html>
