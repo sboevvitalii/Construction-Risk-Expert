@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Search engines read this long title from the HTML; visitors see the short tab title that the script sets (tabTitle in the dictionaries below). -->
 <title>Технический заказчик и аудит рисков в строительстве — Сергей Сбоев</title>
 <meta name="description" content="Технический заказчик и эксперт по рискам в строительном деле: аудит строительства, сопровождение и управление строительством, наставничество для линейных руководителей.">
 <meta name="keywords" content="технический заказчик, риски в строительном деле, аудит, аудит строительства, управление рисками в строительстве, сопровождение строительства, управление строительством, эксперт по рискам, наставничество для линейных руководителей">
@@ -13,12 +14,12 @@
 <!-- Open Graph / Twitter: link previews in messengers and social networks (switched to English together with the page language) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Сергей Сбоев — эксперт по рискам в строительстве">
-<meta property="og:title" content="Технический заказчик и аудит рисков в строительстве — Сергей Сбоев">
+<meta property="og:title" content="Эксперт по рискам в строительстве">
 <meta property="og:description" content="Технический заказчик и эксперт по рискам в строительном деле: аудит строительства, сопровождение и управление строительством, наставничество для линейных руководителей.">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Технический заказчик и аудит рисков в строительстве — Сергей Сбоев">
+<meta name="twitter:title" content="Эксперт по рискам в строительстве">
 <meta name="twitter:description" content="Технический заказчик и эксперт по рискам в строительном деле: аудит строительства, сопровождение и управление строительством, наставничество для линейных руководителей.">
 <!-- TODO when the site has its own domain: add <link rel="canonical" href="https://DOMAIN/">, <meta property="og:url" content="https://DOMAIN/">
      and <meta property="og:image" content="https://DOMAIN/og-image.jpg"> (1200x630) — these need an absolute address.
@@ -1122,6 +1123,7 @@
   var translations = {
     ru: {
       pageTitle: "Технический заказчик и аудит рисков в строительстве — Сергей Сбоев",
+      tabTitle: "Эксперт по рискам в строительстве",
       metaDescription: "Технический заказчик и эксперт по рискам в строительном деле: аудит строительства, сопровождение и управление строительством, наставничество для линейных руководителей.",
       metaKeywords: "технический заказчик, риски в строительном деле, аудит, аудит строительства, управление рисками в строительстве, сопровождение строительства, управление строительством, эксперт по рискам, наставничество для линейных руководителей",
       ogLocale: "ru_RU",
@@ -1186,6 +1188,7 @@
     },
     en: {
       pageTitle: "Technical Customer & Construction Risk Audit — Sergey Sboyev",
+      tabTitle: "Construction Risk Expert",
       metaDescription: "Technical customer (owner's representative) and construction risk expert: construction audit, project support and management, mentoring for line managers.",
       metaKeywords: "technical customer, owner's representative, construction risk management, construction audit, construction project support, construction management, mentoring for line managers",
       ogLocale: "en_US",
@@ -1269,15 +1272,15 @@
     var t = translations[lang];
     if(!t) return;
     document.documentElement.setAttribute('lang', lang);
-    document.title = t.pageTitle;
+    document.title = t.tabTitle;   // the SEO title (t.pageTitle) stays only in the HTML source
     var metaMap = [
       ['meta[name="description"]', t.metaDescription],
       ['meta[name="keywords"]', t.metaKeywords],
-      ['meta[property="og:title"]', t.pageTitle],
+      ['meta[property="og:title"]', t.tabTitle],
       ['meta[property="og:description"]', t.metaDescription],
       ['meta[property="og:locale"]', t.ogLocale],
       ['meta[property="og:locale:alternate"]', t.ogLocaleAlt],
-      ['meta[name="twitter:title"]', t.pageTitle],
+      ['meta[name="twitter:title"]', t.tabTitle],
       ['meta[name="twitter:description"]', t.metaDescription]
     ];
     for(var m=0;m<metaMap.length;m++){
